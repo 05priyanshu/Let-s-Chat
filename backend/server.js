@@ -14,7 +14,13 @@ connectDB();
 const app = express();
 
 app.use(express.json()); // to accept json data
-app.use(cors());
+// app.use(cors());
+const corsOptions = {
+  origin: "https://lets-chat-324u.onrender.com",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 
 // app.get("/", (req, res) => {
 //   res.send("API Running!");
